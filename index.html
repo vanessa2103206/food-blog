@@ -1,78 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il mio Food Blog</title>
+    <title>Il mio Food Blog - Sapori di Puglia</title>
+    
+    <!-- Link per i font da internet -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    <!-- IL NUOVO COLLEGAMENTO: Dice al browser di andare a leggere la grafica nel file style.css -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!--barra di navigazione(nuovo elemento richiesto)-->
-    <div>
-        <nav>
-<!--logo. può essere testo o immagine-->
-        <strong>pugliafoodlogo</strong>
-        <!--due link , di cui uno pporta alla nuova pagina contatti-->
-        <a href="index.html">home</a>
-        <a href="contatti.html">contatti</a>
-        </nav>
 
-    </div>
+    <!-- Barra di navigazione -->
+    <nav>
+        <strong class="logo-navbar">pugliafoodlogo</strong>
+        <div>
+            <a href="index.html">home</a>
+            <a href="contatti.html">contatti</a>
+        </div>
+    </nav>
     
-    
-    <!--Sezione principale : titolo della pagina-->
-    <div>
-
-<header>
-
-        <h1>Il mio Food Blog; Sapori di Puglia</h1>
-        <p>benvenuti nel Blog dedicato ai piatti tipici della tradizione Pugliese.</p>
-
+    <!-- Sezione principale con titolo -->
+    <header>
+        <h1>Il mio Food Blog: Sapori di Puglia</h1>
+        <p>Benvenuti nel Blog dedicato ai piatti tipici della tradizione Pugliese.</p>
     </header>
-    </div>
     
-    <hr>
-    <!--sezione con tre card-->
-    <div>
-
-<main>
-        <article>
-            <h2>orecchiette alle cime di rapa</h2>
-            <img src="orecchiette cime di rapa.jpeg" alt="orecchiette alle cime di rapa" width="300">
-            <p>Il primo piatto simbolo di eccellenza della Puglia, preparato con pasta fresca fatta in casa e cime di rape saltate in padella con acciughe.</p>
-            <a href="giallozafferano.it" target="_blank">leggi la ricetta su Giallo Zafferano</a>
-
-        </article>
-        <hr>
-        <!--card due: pasticciotto leccese-->
-        <article>
-            <h2>Pasticciotto Leccese</h2>
-            <img src="pasticciotto leccese.jpg" alt="Pasticciotto Leccese" width="300">
-            <p>Un guscio di fragrante pasta frolle, farcito con golosa e vellutata crema pasticcera</p>
-            <a href="giallozafferano.it" target="_blank">Leggi la ricetta su GialloZafferano</a>
-        </article>
-        <hr>
-        <article>
-            <h2>Focaccia Barese</h2>
-            <img src="focaccia barese buona.jpg" alt="Focaccia Barese" width="300">
-            <p>Alta e soffice, condita con pomodorini freschi, olive neree tanto olio extravergine.</p>
-            <a href="giallozafferano.it" target="_blank">Leggi la ricetta su GialloZafferano</a>
-        </article>
-        </main>
-    
-
-    </div>
-    
+    <!-- Sezione con le tre card degli articoli -->
+    <main>
         
-    <!--piè di pagina-->
-    <div>
+        <!-- Card 1 -->
+        <article class="card">
+            <h2>Orecchiette alle cime di rapa</h2>
+            <img src="orecchiette cime di rapa.jpeg" alt="orecchiette alle cime di rapa">
+            <p>Il primo piatto simbolo di eccellenza della Puglia, preparato con pasta fresca fatta in casa e cime di rape saltate in padella con acciughe.</p>
+            <a href="https://giallozafferano.it" target="_blank">Leggi la ricetta su GialloZafferano</a>
+        </article>
 
+        <!-- Card 2 -->
+        <article class="card">
+            <h2>Pasticciotto Leccese</h2>
+            <img src="pasticciotto leccese.jpg" alt="Pasticciotto Leccese">
+            <p>Un guscio di fragrante pasta frolla, farcito con golosa e vellutata crema pasticcera.</p>
+            <a href="https://giallozafferano.it" target="_blank">Leggi la ricetta su GialloZafferano</a>
+        </article>
+        
+        <!-- Card 3 -->
+        <article class="card">
+            <h2>Focaccia Barese</h2>
+            <img src="focaccia barese buona.jpg" alt="Focaccia Barese">
+            <p>Alta e soffice, condita con pomodorini freschi, olive nere e tanto olio extravergine.</p>
+            <a href="https://giallozafferano.it" target="_blank">Leggi la ricetta su GialloZafferano</a>
+        </article>
+
+    </main>
+
+    <!-- Footer finale -->
     <footer>
-        <p>blog creato da Vanessa</p>
+        <p style="text-align: center; padding: 20px; background-color: #333; color: #fff; margin: 0;">
+            Sito web creato per l'esercitazione di HTML e CSS Semantico.
+        </p>
     </footer>
 
-
-    </div>
-    
-    
 </body>
 </html>

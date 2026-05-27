@@ -1,0 +1,92 @@
+/* 1. APPLICAZIONE FONT PERSONALIZZATI */
+body {
+    font-family: 'Inter', sans-serif; /* Font per i testi */
+    margin: 0;
+    padding: 0;
+    
+    /* 7. INSERIRE UN BACKGROUND-IMAGE */
+    background-image: url('https://transparenttextures.com');
+    background-color: #fcfaf7; 
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif; /* Font per i titoli */
+    /* 2. COLORE PERSONALIZZATO AI TITOLI */
+    color: #bc5100; 
+}
+
+/* 3. DIMENSIONI DEL LOGO DELLA NAVBAR */
+.logo-navbar {
+    font-size: 26px; 
+    font-weight: bold;
+}
+
+/* Struttura base della barra di navigazione */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #ffffff;
+}
+nav a {
+    text-decoration: none;
+    color: #333;
+    margin-left: 15px;
+}
+
+/* 4. INSERIRE ALMENO UN BACKGROUND-COLOR */
+header {
+    background-color: #ffe6d5; /* Sfondo arancione chiaro */
+    text-align: center;
+    padding: 40px 20px;
+    transition: background-color 0.3s ease; 
+}
+
+/* 6. CAMBIO COLORE SFONDO ALL'HOVER */
+header:hover {
+    background-color: #ffd2b3; /* Diventa più scuro al passaggio del mouse */
+}
+
+/* Contenitore flessibile per allineare le card */
+main {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+    align-items: stretch;
+}
+
+/* 5. SISTEMA LE DIMENSIONI DELLE CARD <article> */
+article.card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+/* 5. SISTEMA LE DIMENSIONI DELLE IMMAGINI NELLE CARD */
+article.card img {
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 4px;
+}
+
+/* Spazio per i testi delle card */
+article.card p {
+    flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+article.card a {
+    color: #bc5100;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: auto; 
+}
