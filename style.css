@@ -5,7 +5,7 @@ body {
     padding: 0;
     
     /* 7. INSERIRE UN BACKGROUND-IMAGE (LINK DIRETTO STANDARD) */
-    background-image: url('https://transparenttextures.com');
+    background-image: url('https://transparenttextures.com /patterns/cream-paper.png');
     background-color: #f7f3eb; /* Colore di fallback se non c'è internet */
 }
 
