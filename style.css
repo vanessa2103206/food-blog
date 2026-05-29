@@ -4,9 +4,9 @@ body {
     margin: 0;
     padding: 0;
     
-    /* 7. INSERIRE UN BACKGROUND-IMAGE */
+    /* 7. INSERIRE UN BACKGROUND-IMAGE (LINK DIRETTO STANDARD) */
     background-image: url('https://transparenttextures.com');
-    background-color: #fcfaf7; 
+    background-color: #f7f3eb; /* Colore di fallback se non c'è internet */
 }
 
 h1, h2 {
