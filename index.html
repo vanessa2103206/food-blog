@@ -10,10 +10,11 @@
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 
-    <!-- IL NUOVO COLLEGAMENTO: Dice al browser di andare a leggere la grafica nel file style.css -->
+    <!-- Collegamento al file CSS esterno -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<!-- ID top aggiunto al body per permettere il ritorno in alto della pagina -->
+<body id="top">
 
     <!-- Barra di navigazione -->
     <nav>
@@ -61,10 +62,14 @@
 
     <!-- Footer finale -->
     <footer>
-        <p style="text-align: center; padding: 20px; background-color: #333; color: #fff; margin: 0;">
-            Sito web creato per l'esercitazione di HTML e CSS Semantico.
-        </p>
+        <p>Sito web creato per l'esercitazione di HTML e CSS Semantico Avanzato.</p>
     </footer>
+
+    <!-- Bottone fisse in basso a destra per tornare su -->
+    <a href="#top" class="btn-torna-su" title="Torna in alto">
+        <img src="freccia.png" alt="Freccia Torna Su">
+    </a>
 
 </body>
 </html>
+

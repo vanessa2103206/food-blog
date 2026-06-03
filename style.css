@@ -1,4 +1,9 @@
-/* 1. APPLICAZIONE FONT PERSONALIZZATI E SFONDO */
+
+/* --- IMPOSTAZIONI GLOBALI --- */
+html {
+    scroll-behavior: smooth; /* Scorrimento fluido quando si clicca sul bottone torna su */
+}
+
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -7,6 +12,9 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-color: #f7f3eb;
+    
+    /* Spazio in alto per non far finire l'header sotto la navbar fissa */
+    padding-top: 75px; 
 }
 
 h1, h2 {
@@ -14,14 +22,22 @@ h1, h2 {
     color: #bc5100; 
 }
 
-/* 2. NAVBAR CON ALLINEAMENTO FLEXBOX (TUTTO DI FIANCO) */
+/* --- NAVBAR FISSA IN ALTO --- */
 nav {
-    display: flex;             /* Attiva Flexbox */
-    align-items: center;       /* Allinea logo e link verticalmente al centro */
-    gap: 30px;                 /* Crea lo spazio orizzontale tra logo e link */
+    display: flex;             
+    align-items: center;       
+    gap: 30px;                 
     padding: 15px 30px;
     background-color: #ffffff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+
+    /* Blocca la navbar in cima allo schermo */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 45px;             
+    z-index: 999;             /* Sta sopra a tutto tranne al bottone torna su */
 }
 
 .logo-navbar {
@@ -29,10 +45,9 @@ nav {
     font-weight: bold;
 }
 
-/* Raggruppamento dei link nella navbar */
 nav div {
     display: flex;
-    gap: 20px;                 /* Spazio tra i singoli link */
+    gap: 20px;                 
 }
 
 nav a {
@@ -44,12 +59,11 @@ nav a {
     transition: border-color 0.2s ease;
 }
 
-/* PSEUDO SELETTORE :HOVER PER APPLICARE IL BORDER-BOTTOM */
 nav a:hover {
-    border-bottom: 2px solid #bc5100; /* Linea colorata che appare all'hover */
+    border-bottom: 2px solid #bc5100; 
 }
 
-/* 3. HEADER CON FLEXBOX */
+/* --- HEADER CON FLEXBOX --- */
 header {
     display: flex;
     flex-direction: column;    
@@ -65,7 +79,7 @@ header:hover {
     background-color: #ffd2b3; 
 }
 
-/* 4. SEZIONE DEGLI ARTICOLI (MAIN) CON FLEXBOX */
+/* --- SEZIONE MAIN ED ARTICOLI CON FLEXBOX --- */
 main {
     display: flex;
     justify-content: center;   
@@ -75,7 +89,6 @@ main {
     padding: 40px 20px;
 }
 
-/* Struttura interna delle singole card */
 article.card {
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
@@ -83,7 +96,6 @@ article.card {
     padding: 20px;
     width: 300px; 
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    
     display: flex;             
     flex-direction: column;    
 }
@@ -107,7 +119,7 @@ article.card a {
     margin-top: auto; 
 }
 
-/* 5. FOOTER CON FLEXBOX */
+/* --- FOOTER CON FLEXBOX --- */
 footer {
     display: flex;
     justify-content: center;   
@@ -116,4 +128,82 @@ footer {
     background-color: #333; 
     color: #fff; 
     margin: 0;
+}
+
+/* --- BOTTONE "TORNA SU" FISSO IN BASSO A DESTRA --- */
+.btn-torna-su {
+    position: fixed;
+    bottom: 30px;              
+    right: 30px;               
+    width: 55px;               
+    height: 55px;
+    z-index: 1000;             /* Numero più alto di tutti per stare sempre in sovrimpressione */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease;
+    
+    /* Attivazione animazione opzionale di molleggio continuo */
+    animation: molleggio 2s infinite ease-in-out;
+}
+
+.btn-torna-su img {
+    width: 100%;               
+    height: 100%;
+    border-radius: 12px;       
+}
+
+.btn-torna-su:hover {
+    transform: scale(1.1);     
+}
+
+/* CREAZIONE ANIMAZIONE (Molleggio verticale) */
+@keyframes molleggio {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px); 
+    }
+}
+
+/* --- MEDIA QUERY PER RENDERE IL SITO RESPONSIVE (SMARTPHONE) --- */
+@media (max-width: 768px) {
+    body {
+        padding-top: 110px;    /* Aumenta lo spazio perché la navbar sui telefoni va su due righe */
+    }
+
+    nav {
+        flex-direction: column;/* Dispone logo e link in verticale */
+        height: auto;          
+        gap: 10px;
+        padding: 10px;
+    }
+
+    nav div {
+        gap: 15px;             
+    }
+
+    header h1 {
+        font-size: 1.8rem;     
+    }
+
+    main {
+        padding: 20px 10px;
+        gap: 15px;
+    }
+
+    article.card {
+        width: 100%;           /* Le card occupano tutto lo schermo del telefono */
+        max-width: 340px;      
+    }
+    
+    .btn-torna-su {
+        bottom: 20px;          
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
 }
