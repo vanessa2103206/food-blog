@@ -1,209 +1,283 @@
-
-/* --- IMPOSTAZIONI GLOBALI --- */
-html {
-    scroll-behavior: smooth; /* Scorrimento fluido quando si clicca sul bottone torna su */
+/* --- RESET E REGOLE GENERALI --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('sfondo.jpg.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-color: #f7f3eb;
-    
-    /* Spazio in alto per non far finire l'header sotto la navbar fissa */
-    padding-top: 75px; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background-color: #fff;
+    padding-top: 70px; /* Evita che la navbar copra il contenuto iniziale */
 }
 
-h1, h2 {
-    font-family: 'Playfair Display', serif;
-    color: #bc5100; 
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-/* --- NAVBAR FISSA IN ALTO --- */
-nav {
-    display: flex;             
-    align-items: center;       
-    gap: 30px;                 
-    padding: 15px 30px;
-    background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-
-    /* Blocca la navbar in cima allo schermo */
+/* --- NAVBAR FISSA --- */
+.custom-navbar {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    height: 45px;             
-    z-index: 999;             /* Sta sopra a tutto tranne al bottone torna su */
+    width: 100%;
+    height: 70px;
+    background-color: #111;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-.logo-navbar {
-    font-size: 26px; 
-    font-weight: bold;
+.navbar-logo {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-nav div {
-    display: flex;
-    gap: 20px;                 
+.navbar-logo span {
+    color: #e50914; /* Colore rosso cinema */
 }
 
-nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    padding-bottom: 5px;       
-    border-bottom: 2px solid transparent; 
-    transition: border-color 0.2s ease;
+.navbar-links a {
+    color: #ccc;
+    margin-left: 20px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
-nav a:hover {
-    border-bottom: 2px solid #bc5100; 
+.navbar-links a:hover {
+    color: #e50914;
 }
 
-/* --- HEADER CON FLEXBOX --- */
-header {
-    display: flex;
-    flex-direction: column;    
-    align-items: center;       
-    justify-content: center;   
-    background-color: #ffe6d5; 
-    text-align: center;
-    padding: 40px 20px;
-    transition: background-color 0.3s ease; 
+/* --- HERO SECTION --- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 70px); /* Tutta la pagina visibile meno l'altezza navbar */
+    background-image: url('sfondocinema.jpg'); /* Aggiornato con il tuo file sfondocinema.jpg */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-header:hover {
-    background-color: #ffd2b3; 
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Scurisce lo sfondo per leggibilità del testo */
 }
 
-/* --- SEZIONE MAIN ED ARTICOLI CON FLEXBOX --- */
-main {
-    display: flex;
-    justify-content: center;   
-    align-items: stretch;      
-    gap: 20px;
-    flex-wrap: wrap;           
-    padding: 40px 20px;
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
 }
 
-article.card {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
+.hero-content p {
+    font-size: 1.25rem;
+    color: #ddd;
+}
+
+/* --- SEZIONE FILM --- */
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #e50914;
+    border-radius: 2px;
+}
+
+.film-card {
+    background: #fff;
     border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.film-card:hover {
+    transform: translateY(-5px);
+}
+
+.film-img-link {
+    display: block;
+    overflow: hidden;
+    height: 250px;
+}
+
+.film-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.film-card:hover .film-img {
+    transform: scale(1.05);
+}
+
+.film-body {
     padding: 20px;
-    width: 300px; 
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    display: flex;             
-    flex-direction: column;    
 }
 
-article.card img {
-    width: 100%; 
-    height: 200px; 
-    object-fit: cover; 
+.badge-genre {
+    display: inline-block;
+    background-color: #f8d7da;
+    color: #842029;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
     border-radius: 4px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
-article.card p {
-    flex-grow: 1;              
-    margin-bottom: 20px;
+.film-body h3 {
+    font-size: 1.35rem;
+    margin-bottom: 10px;
 }
 
-article.card a {
-    color: #bc5100;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: auto; 
+.film-body p {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
 }
 
-/* --- FOOTER CON FLEXBOX --- */
-footer {
+/* --- FORM SEZIONE --- */
+.form-container {
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+.custom-form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.custom-form-input:focus {
+    outline: none;
+    border-color: #e50914;
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    background-color: #e50914;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #b20710;
+}
+
+/* --- FOOTER --- */
+.custom-footer {
+    background-color: #111;
+    color: #fff;
+    border-top: 3px solid #e50914;
+}
+
+.custom-footer h5 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.footer-socials a {
+    display: inline-block;
+    font-size: 1.3rem;
+    color: #ccc;
+    margin-left: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-socials a:hover {
+    color: #e50914;
+    transform: scale(1.1);
+}
+
+/* --- RESPONSIVE BREAKPOINTS (MEDIA QUERIES) --- */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+    }
+    .form-container {
+        padding: 25px;
+    }
+    .footer-socials {
+        margin-top: 10px;
+    }
+}
+/* --- TRUCCO PER METTERE I FILM SU 3 COLONNE ANCHE SENZA INTERNET --- */
+#film .row {
     display: flex;
-    justify-content: center;   
-    align-items: center;       
-    padding: 20px; 
-    background-color: #333; 
-    color: #fff; 
-    margin: 0;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
 }
 
-/* --- BOTTONE "TORNA SU" FISSO IN BASSO A DESTRA --- */
-.btn-torna-su {
-    position: fixed;
-    bottom: 30px;              
-    right: 30px;               
-    width: 55px;               
-    height: 55px;
-    z-index: 1000;             /* Numero più alto di tutti per stare sempre in sovrimpressione */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    border-radius: 12px;
+#film .col-12 {
+    flex: 0 0 auto;
+    width: 33.3333%; /* Forza la divisione esatta in 3 colonne */
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* Rende il form più stretto e centrato come richiesto */
+#lavora-con-noi .row {
     display: flex;
     justify-content: center;
-    align-items: center;
-    transition: transform 0.2s ease;
-    
-    /* Attivazione animazione opzionale di molleggio continuo */
-    animation: molleggio 2s infinite ease-in-out;
+}
+#lavora-con-noi .col-12 {
+    width: 50%; /* Stringe il form a metà pagina per renderlo elegante */
 }
 
-.btn-torna-su img {
-    width: 100%;               
-    height: 100%;
-    border-radius: 12px;       
-}
-
-.btn-torna-su:hover {
-    transform: scale(1.1);     
-}
-
-/* CREAZIONE ANIMAZIONE (Molleggio verticale) */
-@keyframes molleggio {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-8px); 
-    }
-}
-
-/* --- MEDIA QUERY PER RENDERE IL SITO RESPONSIVE (SMARTPHONE) --- */
+/* Ottimizzazione per schermi piccoli (es. cellulari) */
 @media (max-width: 768px) {
-    body {
-        padding-top: 110px;    /* Aumenta lo spazio perché la navbar sui telefoni va su due righe */
+    #film .col-12 {
+        width: 100%; /* Sui telefoni i film tornano uno sotto l'altro ordinati */
     }
-
-    nav {
-        flex-direction: column;/* Dispone logo e link in verticale */
-        height: auto;          
-        gap: 10px;
-        padding: 10px;
-    }
-
-    nav div {
-        gap: 15px;             
-    }
-
-    header h1 {
-        font-size: 1.8rem;     
-    }
-
-    main {
-        padding: 20px 10px;
-        gap: 15px;
-    }
-
-    article.card {
-        width: 100%;           /* Le card occupano tutto lo schermo del telefono */
-        max-width: 340px;      
-    }
-    
-    .btn-torna-su {
-        bottom: 20px;          
-        right: 20px;
-        width: 45px;
-        height: 45px;
+    #lavora-con-noi .col-12 {
+        width: 100%;
     }
 }
