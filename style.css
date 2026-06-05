@@ -1,4 +1,5 @@
-/* --- RESET E REGOLE GENERALI --- */
+```css
+/* --- RESET E IMPOSTAZIONI GENERALI --- */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,88 +8,51 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa !important; /* Forza lo sfondo grigio chiaro */
     color: #333;
-    background-color: #fff;
-    padding-top: 70px; /* Evita che la navbar copra il contenuto iniziale */
+    padding-top: 56px; /* Evita sovrapposizioni della barra fissa */
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* --- NAVBAR FISSA --- */
+/* --- NAVBAR DI BOOTSTRAP --- */
 .custom-navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background-color: #111;
-    z-index: 1000;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
-
-.navbar-logo {
-    color: #fff;
+.navbar-brand.brand {
     font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 1px;
+    font-weight: bold;
+    color: #fff !important;
 }
-
-.navbar-logo span {
-    color: #e50914; /* Colore rosso cinema */
-}
-
-.navbar-links a {
-    color: #ccc;
-    margin-left: 20px;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-.navbar-links a:hover {
-    color: #e50914;
+.navbar-brand.brand span {
+    color: #e50914; /* Rosso Cinema */
 }
 
 /* --- HERO SECTION --- */
 .hero-section {
-    position: relative;
     width: 100%;
-    height: calc(100vh - 70px); /* Tutta la pagina visibile meno l'altezza navbar */
-    background-image: url('sfondocinema.jpg'); /* Aggiornato con il tuo file sfondocinema.jpg */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    height: calc(100vh - 56px);
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), 
+                url('sfondocinema.jpg') no-repeat center center/cover !important;
+    background-color: #222;
 }
 
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Scurisce lo sfondo per leggibilità del testo */
-}
-
-.hero-content h1 {
-    font-size: 3rem;
+.hero-title {
+    font-size: 3.5rem;
     font-weight: 800;
+    letter-spacing: 2px;
     margin-bottom: 15px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    color: #ffffff !important;
 }
 
-.hero-content p {
-    font-size: 1.25rem;
-    color: #ddd;
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #dddddd !important;
 }
 
-/* --- SEZIONE FILM --- */
+/* --- TITOLI SEZIONI --- */
 .section-title {
-    font-size: 2.2rem;
-    font-weight: 700;
+    font-size: 2.5rem;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 
 .section-title::after {
@@ -97,187 +61,94 @@ a {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
+    width: 80px;
     height: 4px;
     background-color: #e50914;
-    border-radius: 2px;
 }
 
-.film-card {
-    background: #fff;
-    border-radius: 8px;
-    overflow: hidden;
+/* --- COMPONENTE CARD FILM --- */
+.movie-bootstrap-card {
+    border: none !important;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    height: 100%;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s;
+    background-color: #fff !important;
 }
-
-.film-card:hover {
+.movie-bootstrap-card:hover {
     transform: translateY(-5px);
 }
-
-.film-img-link {
-    display: block;
-    overflow: hidden;
-    height: 250px;
-}
-
-.film-img {
-    width: 100%;
-    height: 100%;
+.movie-img {
+    height: 230px;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    width: 100%;
 }
 
-.film-card:hover .film-img {
-    transform: scale(1.05);
+/* --- COMPONENTE CAROSELLO --- */
+.custom-carousel-inner {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.carousel-img {
+    height: 400px;
+    object-fit: cover;
 }
 
-.film-body {
-    padding: 20px;
+/* --- COMPONENTE ACCORDION (FAQ) --- */
+.accordion-button:not(.collapsed) {
+    background-color: #e50914 !important;
+    color: white !important;
+}
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.25) !important;
 }
 
-.badge-genre {
-    display: inline-block;
-    background-color: #f8d7da;
-    color: #842029;
-    padding: 4px 8px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
+/* --- SEZIONE FORM --- */
+.form-section {
+    background-color: #f0f2f5 !important;
 }
 
-.film-body h3 {
-    font-size: 1.35rem;
-    margin-bottom: 10px;
-}
-
-.film-body p {
-    font-size: 0.95rem;
-    color: #666;
-    line-height: 1.5;
-}
-
-/* --- FORM SEZIONE --- */
 .form-container {
-    background: #fff;
+    background: #fff !important;
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.form-label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-}
-
-.custom-form-input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.custom-form-input:focus {
-    outline: none;
-    border-color: #e50914;
-}
-
 .btn-submit {
-    display: block;
-    width: 100%;
     background-color: #e50914;
-    color: #fff;
+    color: white;
     padding: 12px;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: bold;
     cursor: pointer;
-    text-align: center;
-    transition: background-color 0.3s ease;
+    width: 100%;
+    transition: background 0.3s;
 }
-
 .btn-submit:hover {
     background-color: #b20710;
 }
 
 /* --- FOOTER --- */
 .custom-footer {
-    background-color: #111;
+    background-color: #111 !important;
     color: #fff;
     border-top: 3px solid #e50914;
 }
-
-.custom-footer h5 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-}
-
-.footer-socials a {
-    display: inline-block;
-    font-size: 1.3rem;
-    color: #ccc;
+.social-icons a {
+    color: #fff;
+    font-size: 1.5rem;
     margin-left: 15px;
-    transition: color 0.3s ease, transform 0.3s ease;
 }
-
-.footer-socials a:hover {
+.social-icons a:hover {
     color: #e50914;
-    transform: scale(1.1);
 }
 
-/* --- RESPONSIVE BREAKPOINTS (MEDIA QUERIES) --- */
+/* --- STRUTTURA RESPONSIVE (MEDIA QUERIES) --- */
 @media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.2rem;
-    }
-    .hero-content p {
-        font-size: 1rem;
-    }
-    .form-container {
-        padding: 25px;
-    }
-    .footer-socials {
-        margin-top: 10px;
-    }
-}
-/* --- TRUCCO PER METTERE I FILM SU 3 COLONNE ANCHE SENZA INTERNET --- */
-#film .row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-}
-
-#film .col-12 {
-    flex: 0 0 auto;
-    width: 33.3333%; /* Forza la divisione esatta in 3 colonne */
-    padding-right: 15px;
-    padding-left: 15px;
-}
-
-/* Rende il form più stretto e centrato come richiesto */
-#lavora-con-noi .row {
-    display: flex;
-    justify-content: center;
-}
-#lavora-con-noi .col-12 {
-    width: 50%; /* Stringe il form a metà pagina per renderlo elegante */
-}
-
-/* Ottimizzazione per schermi piccoli (es. cellulari) */
-@media (max-width: 768px) {
-    #film .col-12 {
-        width: 100%; /* Sui telefoni i film tornano uno sotto l'altro ordinati */
-    }
-    #lavora-con-noi .col-12 {
-        width: 100%;
-    }
+    .hero-title { font-size: 2.3rem; }
+    .hero-subtitle { font-size: 1.1rem; }
+    .form-container { padding: 20px; }
+    .carousel-img { height: 280px; }
 }

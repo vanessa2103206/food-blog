@@ -3,157 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CineBlog - Il Tuo Spazio Cinema</title>
-    <!-- Bootstrap Grid & Utilities CSS -->
-    <link href="https://jsdelivr.net" rel="stylesheet">
-    <link href="https://jsdelivr.net" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://jsdelivr.net">
-    <!-- CSS Personalizzato -->
-    <link rel="stylesheet" href="style.css">
-    <!-- JavaScript di Bootstrap (Necessario solo per far funzionare la Modal al click) -->
-    <script src="https://jsdelivr.net" defer></script>
+    <title>CineBlog PRO - Passione Cinema</title>
+    
+    <!-- CSS Incorporato Completo: Forza le 3 colonne e la navbar senza errori di file -->
+    <style>
+        /* --- GRID SYSTEM BOOTSTRAP IN LOCALE --- */
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        @media (min-width: 768px) { .container { max-width: 720px; } }
+        @media (min-width: 992px) { .container { max-width: 960px; } }
+        @media (min-width: 1200px) { .container { max-width: 1140px; } }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+
+        .col-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 15px;
+        }
+        @media (min-width: 768px) {
+            .col-md-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+        @media (min-width: 992px) {
+            .col-lg-4 {
+                flex: 0 0 33.333333%;
+                max-width: 33.333333%;
+            }
+        }
+
+        /* --- STILI GENERALI --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa !important;
+            color: #333;
+            padding-top: 70px;
+        }
+
+        /* --- NAVBAR FISSA --- */
+        .custom-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: #111 !important;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+        }
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .custom-navbar .brand {
+            color: #fff !important;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .custom-navbar .brand span {
+            color: #e50914;
+        }
+        .custom-navbar .nav-links {
+            display: flex !important;
+            flex-direction: row !important;
+            list-style: none !important;
+            margin: 0;
+            padding: 0;
+        }
+        .custom-navbar .nav-links a {
+            color: #ccc !important;
+            text-decoration: none !important;
+            margin-left: 20px !important;
+            font-size: 1rem;
+        }
+        .custom-navbar .nav-links a:hover {
+            color: #fff !important;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            width: 100%;
+            height: calc(100vh - 70px);
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
+                        url('sfondocinema.jpg') no-repeat center center/cover !important;
+            background-color: #222; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #ffffff !important;
+            margin-bottom: 15px;
+        }
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #dddddd !important;
+        }
+
+        /* --- SEZIONI E TITOLI --- */
+        .py-5 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+        .mb-5 { margin-bottom: 3rem !important; }
+        .section-title {
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: #e50914;
+        }
+
+        /* --- CARD FILM --- */
+        .movie-bootstrap-card {
+            background-color: #fff !important;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .movie-img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        .bg-primary { background-color: #007bff; }
+        .bg-danger { background-color: #e50914; }
+        .bg-success { background-color: #28a745; }
+        .card-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .card-text {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* --- CAROSELLO --- */
+        .bg-dark { background-color: #111 !important; color: #fff; }
+        .custom-carousel {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+        .carousel-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+        }
+
+        /* --- FAQ --- */
+        .custom-accordion {
+            background: #fff !important;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            padding: 20px;
+        }
+        .accordion-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            text-align: left;
+        }
+        .accordion-header {
+            font-size: 1.2rem;
+            color: #e50914;
+            margin-bottom: 5px;
+        }
+
+        /* --- FORM --- */
+        .form-section { background-color: #f0f2f5 !important; }
+        .form-container {
+            background: #fff !important;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .form-label { display: block; margin-bottom: 8px; font-weight: 600; text-align: left; }
+        .form-control { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; margin-bottom: 15px; }
+        .btn-submit {
+            background-color: #e50914;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* --- FOOTER --- */
+        .custom-footer { background-color: #111 !important; color: #fff; padding: 20px 0; }
+        .footer-container { display: flex; justify-content: space-between; align-items: center; }
+    </style>
 </head>
 <body>
 
-    <!-- NAVBAR FISSATA IN ALTO -->
+    <!-- NAVBAR -->
     <nav class="custom-navbar">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a href="#" class="navbar-logo">Cine<span>Blog</span></a>
-            <div class="navbar-links">
-                <a href="#film">Film</a>
-                <a href="#lavora-con-noi">Lavora con noi</a>
-            </div>
+        <div class="container navbar-container">
+            <a class="brand" href="#">Cine<span>Blog</span></a>
+            <ul class="nav-links">
+                <li><a class="nav-link" href="#film">Film</a></li>
+                <li><a class="nav-link" href="#novita">Novità</a></li>
+                <li><a class="nav-link" href="#faq">FAQ</a></li>
+                <li><a class="nav-link" href="#lavora-con-noi">Lavora con noi</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- HERO SECTION (Grande quanto tutta la pagina) -->
-    <header class="hero-section d-flex align-items-center justify-content-center">
-        <div class="hero-overlay"></div>
-        <div class="hero-content text-center text-white z-1">
-            <h1>Ieri, Oggi e Domani al Cinema</h1>
-            <p>Recensioni, anticipazioni e analisi dei migliori film.</p>
+    <!-- HERO SECTION -->
+    <header class="hero-section">
+        <div class="container text-center">
+            <h1 class="hero-title">Ieri, Oggi e Domani al Cinema</h1>
+            <p class="hero-subtitle">Recensioni, anticipazioni e spoiler sui migliori film.</p>
         </div>
     </header>
 
-    <!-- SEZIONE FILM -->
-    <main id="film" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5 section-title">Film in Evidenza</h2>
-            <div class="row g-4">
-                
-                <!-- Film 1: Fantascienza -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="film-card">
-                        <a href="https://rottentomatoes.com" target="_blank" class="film-img-link">
-                            <img src="cinema.jpg" alt="Interstellar" class="img-fluid film-img">
-                        </a>
-                        <div class="film-body">
-                            <span class="badge-genre">Fantascienza</span>
-                            <h3>Interstellar</h3>
-                            <p>Un viaggio spaziale alla ricerca di una nuova casa per l'umanità, tra buchi neri e dimensioni parallele.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Film 2: Thriller -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="film-card">
-                        <a href="https://rottentomatoes.com" target="_blank" class="film-img-link">
-                            <img src="thriller.jpg" alt="Inception" class="img-fluid film-img">
-                        </a>
-                        <div class="film-body">
-                            <span class="badge-genre">Thriller / Noir</span>
-                            <h3>Inception</h3>
-                            <p>Un ladro che ruba segreti aziendali attraverso l'uso della tecnologia di condivisione dei sogni temporali.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Film 3: Animazione -->
-                <div class="col-12 col-md-6 col-lg-4 mx-md-auto mx-lg-0">
-                    <div class="film-card">
-                        <a href="https://rottentomatoes.com" target="_blank" class="film-img-link">
-                            <img src="animazione.jpg" alt="La Città Incantata" class="img-fluid film-img">
-                        </a>
-                        <div class="film-body">
-                            <span class="badge-genre">Animazione</span>
-                            <h3>La Città Incantata</h3>
-                            <p>Una bambina si ritrova in un mondo popolato da spiriti dove i suoi genitori vengono trasformati.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </main>
-
-    <!-- SEZIONE LAVORA CON NOI -->
-    <section id="lavora-con-noi" class="py-5 bg-light">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-8 col-lg-6">
-                    <div class="form-container">
-                        <h2 class="text-center mb-4">Lavora con Noi</h2>
-                        <p class="text-center text-muted mb-4">Sei un appassionato di cinema? Diventa un nostro redattore.</p>
-                        
-                        <form onsubmit="event.preventDefault();">
-                            <div class="form-group mb-3">
-                                <label for="email" class="form-label">Indirizzo Email</label>
-                                <input type="email" id="email" class="custom-form-input" placeholder="esempio@mail.com" required>
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="password" id="password" class="custom-form-input" placeholder="Inserisci la password" required>
-                            </div>
-                            
-                            <!-- Bottone collegato alla Modal di Bootstrap nativa -->
-                            <button type="submit" class="btn-submit" data-bs-toggle="modal" data-bs-target="#thanksModal">
-                                Invia Candidatura
-                            </button>
-                        </form>
-
+    <!-- SEZIONE FILM IN EVIDENZA (CARD SU 3 COLONNE) -->
+    <main id="film" class="container py-5">
+        <h2 class="section-title mb-5">Film in Evidenza</h2>
+        <div class="row">
+            
+            <!-- Card 1 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="movie-bootstrap-card">
+                    <a href="https://rottentomatoes.com" target="_blank">
+                        <img src="sfondocinema.jpg" class="movie-img" alt="Interstellar">
+                    </a>
+                    <div class="card-body">
+                        <span class="badge bg-primary">Fantascienza</span>
+                        <h5 class="card-title">Interstellar</h5>
+                        <p class="card-text">Un viaggio spaziale alla ricerca di una nuova casa per l'umanità.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- FOOTER -->
-    <footer class="custom-footer py-4">
-        <div class="container">
-            <div class="row align-items-center text-center text-md-start">
-                <div class="col-12 col-md-4 mb-3 mb-md-0">
-                    <h5>CineBlog di Vanessa</h5>
-                    <p class="mb-0 text-muted">Tutti i diritti riservati &copy; 2026</p>
-                </div>
-                <div class="col-12 col-md-4 mb-3 mb-md-0 text-md-center">
-                    <p class="mb-0"><strong>P.IVA:</strong> 12345678901</p>
-                </div>
-                <div class="col-12 col-md-4 text-md-end">
-                    <div class="footer-socials">
-                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <!-- Card 2 -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="movie-bootstrap-card">
+                    <a href="https://rottentomatoes.com" target="_blank">
+                        <img src="thriller.jpg" class="movie-img" alt="Inception">
+                    </a>
+                    <div class="card-body">
+                        <span class="badge bg-danger">Thriller</span>
+                        <h5 class="card-title">Inception</h5>
+                        <p class="card-text">Un ladro che ruba segreti aziendali attraverso l'uso dei sogni.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
 
-    <!-- STRUTTURA POP-UP MODAL -->
-    <div class="modal fade" id="thanksModal" tabindex="-1" aria-hidden="true" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1055; background: rgba(0,0,0,0.5); width: 100%; height: 100%;">
-        <div class="modal-dialog modal-dialog-centered" style="margin: 1.75rem auto; max-width: 500px; background: white; border-radius: 8px; padding: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
-            <div class="modal-content" style="border: none;">
-                <div class="modal-body text-center py-4">
-                    <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
-                    <h3 class="mt-3">Grazie per averci contattato!</h3>
-                    <p class="text-muted">La tua candidatura è stata presa in carico con successo.</p>
-                    <button type="button" class="btn-submit mt-3" data-bs-dismiss="modal" style="max-width: 150px; margin: 0 auto;">Chiudi</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</body>
-</html>
+            <!-- Card 3 -->
+            <div class="col-12 col-md-6 col-lg-4">
