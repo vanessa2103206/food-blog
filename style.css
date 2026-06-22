@@ -1,34 +1,39 @@
-/* Configurazione Generale Corpo Pagina */
+/* ==========================================================================
+   1. CONFIGURAZIONE GENERALE & TIPOGRAFIA
+   ========================================================================== */
 body {
     background-color: #0b021e;
-    color: #ffffff !important;
-    font-family: 'Montserrat', 'Segoe UI', Helvetica, Arial, sans-serif !important;
+    color: #ffffff;
+    font-family: 'Montserrat', 'Segoe UI', Helvetica, Arial, sans-serif;
     font-weight: 300;
     overflow-x: hidden;
 }
 
-h1, h2, h3, h4, .fw-bold { 
-    font-weight: 400 !important; 
+body h1, body h2, body h3, body h4, body .fw-bold { 
+    font-weight: 400; 
     letter-spacing: 0.5px;
 }
 
-p { 
+body p { 
     font-weight: 300; 
     line-height: 1.8; 
 }
 
-.text-white-50 {
-    color: rgba(255, 255, 255, 0.6) !important; /* Rende le descrizioni sfumate e leggibili sullo sfondo scuro */
+/* Sfumatura controllata senza forzature */
+body .text-white-50 {
+    color: rgba(255, 255, 255, 0.6);
 }
 
-.text-yellow-neon {
-    color: #ffe600 !important;
-    font-weight: 700 !important;
+/* Specificità aumentata combinando body con la classe per vincere su Bootstrap */
+body .text-yellow-neon {
+    color: #ffe600;
+    font-weight: 700;
+    text-shadow: 0 0 12px rgba(255, 230, 0, 0.35);
 }
 
-.original-bold {
-    font-weight: 700 !important;
-    color: #ffffff !important;
+body .original-bold {
+    font-weight: 700;
+    color: #ffffff;
 }
 
 .title-large {
@@ -36,8 +41,10 @@ p {
     line-height: 1.3;
 }
 
-/* --- SFONDI SEZIONI CON IMMAGINI REALI --- */
-.bg-hero-custom {
+/* ==========================================================================
+   2. SFONDI SEZIONI CON IMMAGINI REALI
+   ========================================================================== */
+header.bg-hero-custom {
     background-image: url('media%20progetto%20webina%20retrogaming/bg-1.jpg');
     background-size: 100% 100%;
     background-position: center center;
@@ -45,40 +52,42 @@ p {
     min-height: 100vh;
 }
 
-.bg-info-custom {
-    background-color: #0b021e !important;
+div.bg-info-custom {
+    background-color: #0b021e;
     background-image: url('media%20progetto%20webina%20retrogaming/bg-2.jpg');
-    background-size: 100% 100% !important;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
+    background-size: 100% 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
-.bg-footer-custom {
+div.bg-footer-custom {
     background-image: url('media%20progetto%20webina%20retrogaming/bg-3.jpg');
-    background-size: 100% 100% !important;
-    background-position: right top !important; 
-    background-repeat: no-repeat !important;
-    padding-top: 50px !important;
-    padding-bottom: 0px !important; /* Azzerato per far toccare la foto a terra */
+    background-size: 100% 100%;
+    background-position: right top; 
+    background-repeat: no-repeat;
+    padding-top: 50px;
+    padding-bottom: 0px; 
 }
 
-/* --- COMPONENTI INTERFACCIA --- */
-.btn-outline-original {
-    background-color: transparent !important;
-    color: #ffe600 !important;
-    border: 1px solid #ffe600 !important;
-    font-weight: 400 !important;
-    padding: 14px 35px !important;
-    border-radius: 50px !important;
+/* ==========================================================================
+   3. COMPONENTI INTERFACCIA E PULSANTI
+   ========================================================================== */
+body .btn-outline-original {
+    background-color: transparent;
+    color: #ffe600;
+    border: 1px solid #ffe600;
+    font-weight: 400;
+    padding: 14px 35px;
+    border-radius: 50px;
     letter-spacing: 1.5px;
     text-decoration: none;
     display: inline-block;
     font-size: 0.85rem;
 }
 
-.btn-yellow-solid {
-    background-color: #ffe600 !important;
-    color: #0b021e !important;
+body .btn-yellow-solid {
+    background-color: #ffe600;
+    color: #0b021e;
     font-weight: 400;
     border: none;
     padding: 16px 35px;
@@ -90,35 +99,80 @@ p {
     width: 100%;
 }
 
-.form-container {
+div.form-container {
     background-color: #120533;
-    border-radius: 24px !important;
+    border-radius: 24px;
     padding: 50px 45px;
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
 }
 
-/* --- SEZIONE SPECIALE AGGIORNATA PER LO SPEAKER --- */
-/* Crea l'altezza corretta e isola lo sfondo per appoggiarsi sul pavimento luminoso */
-.speaker-full-section {
-    position: relative !important;
-    width: 100% !important;
-    height: 480px !important; 
-    margin-top: 40px !important;
-    margin-bottom: 0 !important;
+/* ==========================================================================
+   4. SEZIONE SPECIALE AGGIORNATA PER LO SPEAKER
+   ========================================================================== */
+section.speaker-full-section {
+    position: relative;
+    width: 100%;
+    height: 480px; 
+    margin-top: 40px;
+    margin-bottom: 0;
 }
 
 /* Contenitore Immagine: Blocca la foto sul fondo e la sposta a destra sulla linea fucsia */
-.speaker-image-absolute-wrapper {
-    position: absolute !important;
-    bottom: -15px !important;    /* Spinge la foto ancora più in basso per toccare il pavimento */
-    right: 23.8% !important;     /* SPOSTAMENTO CHIAVE: Aggancia la foto al millimetro sulla linea fucsia */
-    width: 320px !important;      
-    border-right: 4px solid #ff007f !important;
-    border-bottom: 4px solid #ff007f !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    z-index: 5 !important;
+div.speaker-image-absolute-wrapper {
+    position: absolute;
+    bottom: -15px;    
+    right: 23.8%;     
+    width: 320px;      
+    border-right: 4px solid #ff007f;
+    border-bottom: 4px solid #ff007f;
+    padding: 0;
+    margin: 0;
+    z-index: 5;
 }
+
+/* Cornice gialla neon superiore sinistra sfalsata tramite pseudo-elemento */
+div.speaker-image-absolute-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 4px solid #ffe600;
+    border-left: 4px solid #ffe600;
+    border-right: none;
+    border-bottom: none;
+    transform: translate(-8px, -8px);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Gestione dell'immagine reale dentro la cornice */
+img.speaker-img {
+    width: 100%;
+    display: block;
+    position: relative;
+    z-index: 2;
+}
+
+/* ==========================================================================
+   5. INPUT TEXT FORM
+   ========================================================================== */
+body .form-control-custom {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ab1282;
+    color: #ffffff;
+    border-radius: 0px;
+    padding: 14px 4px;
+    font-weight: 200;
+    font-size: 0.95rem;
+}
+
+body .form-control-custom::placeholder {
+    color: rgba(255, 255, 255, 0.25);
+}
+
 
 /* Stile del titolo (Grassetto deciso) */
 .h2-title {
