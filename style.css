@@ -22,9 +22,12 @@ body p {
 /* Sfumatura controllata senza forzature */
 body .text-white-50 {
     color: rgba(255, 255, 255, 0.6);
+
+    
 }
 
-/* Specificità aumentata combinando body con la classe per vincere su Bootstrap */
+
+/* Specificità mentata combinando body con la classe per vincere su Bootstrap */
 body .text-yellow-neon {
     color: #ffe600;
     font-weight: 700;
