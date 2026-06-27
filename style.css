@@ -48,7 +48,7 @@ body .original-bold {
    2. SFONDI SEZIONI CON IMMAGINI REALI
    ========================================================================== */
 header.bg-hero-custom {
-    background-image: url('media%20progetto%20webina%20retrogaming/bg-1.jpg');
+    background-image: url('media progetto webina retrogaming/bg-1.jpg');
     background-size: 100% 100%;
     background-position: center center;
     background-repeat: no-repeat;
@@ -57,14 +57,14 @@ header.bg-hero-custom {
 
 div.bg-info-custom {
     background-color: #0b021e;
-    background-image: url('media%20progetto%20webina%20retrogaming/bg-2.jpg');
+    background-image: url('media progetto webina retrogaming/bg-2.jpg');
     background-size: 100% 100%;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
 div.bg-footer-custom {
-    background-image: url('media%20progetto%20webina%20retrogaming/bg-3.jpg');
+    background-image: url('media progetto webina retrogaming/bg-3.jpg');
     background-size: 100% 100%;
     background-position: right top; 
     background-repeat: no-repeat;
