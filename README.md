@@ -9,4 +9,4 @@ Ecco i diagrammi di flusso realizzati per l'esercizio:
 
 Ecco il diagramma di flusso che descrive l'algoritmo per fare il caffè:
 
-![Diagramma Caffè](caffe.png)
+![Diagramma Caffè](Screenshot%20(438).png)
