@@ -1,0 +1,124 @@
+/* Variabili colore uguali al video del prof */
+:root {
+    --yellow: rgb(214, 195, 48);
+    --main: rgb(27, 21, 64);
+    --acc: rgb(187, 38, 193);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--main);
+    margin: 0;
+    padding: 0;
+}
+
+body h1, body h2, body h3, body h4, body .fw-bold { 
+    font-weight: 700; 
+}
+
+body .text-white-50 {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Sezione 1: Hero */
+.header-custom {
+    background-image: linear-gradient(180deg, rgba(27, 21, 64, 0.2) 0%, var(--main) 100%), url('bg-1.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+}
+
+.btn-custom {
+    border: 1px solid var(--yellow);
+    background-color: transparent;
+    font-weight: 600;
+}
+
+.btn-custom:hover {
+    background-color: var(--yellow);
+    color: black !important;
+    transition: 0.5s;
+}
+
+.bi-calendar2-week, .data {
+    color: var(--yellow);
+}
+
+/* ================= 1. HEADER (MONTAGNE RETROGAMING) ================= */
+.header-custom {
+    background-image: url('./bg-1.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+/* ================= 2. SECONDA SEZIONE (VIOLA NOTTE SCURO) ================= */
+.section2-custom {
+    background-image: none !important;
+    background-color: rgb(17, 13, 44) !important;
+}
+
+/* ================= 3. TERZA SEZIONE (FORM CON RAGGI VIOLA/ROSA) ================= */
+.section3-custom {
+    background-image: url('./bg-2.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+
+.form-custom {
+    background-color: var(--main);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+}
+
+.calendar-form {
+    font-size: 30px;
+    background-color: var(--yellow);
+    color: var(--main) !important;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-control-custom {
+    background-color: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid var(--acc) !important;
+    color: white !important;
+    border-radius: 0px !important;
+    padding: 10px 4px !important;
+    outline: none !important;
+}
+
+.form-control-custom::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.form-control-custom:focus {
+    border-bottom-color: var(--yellow) !important;
+}
+
+.btn-yellow-solid {
+    background-color: var(--yellow);
+    color: var(--main);
+    border: none;
+    border-radius: 50px;
+    font-weight: 700;
+}
+.section4-custom {
+    background-color: rgb(17, 13, 44) !important;
+    height: auto !important;
+}
+
+.section5-custom {
+    background-image: url('./bg-3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* ================= 6. FOOTER FINALE ================= */
+footer {
+    background-color: #16141c;
+    color: rgba(255, 255, 255, 0.6);
+}
